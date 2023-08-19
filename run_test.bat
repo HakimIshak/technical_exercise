@@ -35,15 +35,3 @@ powershell -Command "Expand-Archive -Path \"%zipFilePath%\" -DestinationPath \"%
 REM Clean up: Remove the downloaded zip file
 del "%zipFilePath%"
 del "%driverDirectory%\LICENSE.chromedriver"
-
-REM Run the automation test
-cd "%targetDirectory%"
-REM start "" /wait cmd /c "dotnet %testExecutablePath%\SeleniumTest.cs"
-
-
-REM Compile the test source code into an executable
-csc /out:"%targetDirectory%\%testExecutable%" "%targetDirectory%\%testSourceFile%"
-
-REM Run the automation test
-cd "%targetDirectory%"
-start "" /wait cmd /c "%testExecutable%"
